@@ -1,1 +1,1 @@
-### This repo will history all my coding chalanges solutions from differnt platforms.
+### This repo will history all my coding challenges solutions from differnt platforms.
