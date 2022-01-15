@@ -1,21 +1,18 @@
-// https://github.com/microverse-students/towers-of-hanoi---part-1-od-c0d3r/blob/main/tests.js
+// https://github.com/microverse-students/binary-search-od-c0d3r/edit/main/challenge.js
 
-function move(starting, goal) {
-    let steps = []
-    let mid;
-    if (starting === 1 && goal === 2 || starting === 2 && goal === 1) mid = 3;
-    if (starting === 1 && goal === 3 || starting === 3 && goal === 1 || goal === 2 && starting === 3) mid = 2;
-    if (starting === 2 && goal === 3 || starting === 3 && goal === 2) mid = 1;
-
-    steps.push(`${starting}->${mid}`);
-    steps.push(`${starting}->${goal}`);
-    steps.push(`${mid}->${goal}`);
-
-    return steps.join(' ')
+function sqrt(number) {
+    return sqrt_recursive(number, 0, number)
 }
 
-console.log(move(1, 3));
-// => 1->2 1->3 2->3
+function sqrt_recursive(number, min_interval, max_interval) {
+    // console.log(min_interval, max_interval);
+    let mid = Math.floor((min_interval + max_interval) / 2);
+    if (mid * mid === number) return mid;
+    if (mid * mid > number) return sqrt_recursive(number, min_interval, mid);
+    if (mid * mid < number) return sqrt_recursive(number, mid, max_interval);
+    return 'Error';
+}
 
-console.log(move(2, 3));
-  // => 2->1 2->3 1->3
+console.log(sqrt(25))
+console.log(sqrt(7056))
+
