@@ -1,10 +1,8 @@
-// https://www.codewars.com/kata/57a0556c7cb1f31ab3000ad7/train/javascript
-
-// Write a function which converts the input string to uppercase.
+// https://www.codewars.com/kata/5556282156230d0e5e000089/train/javascript
 
 
-function makeUpperCase(str) {
-    return str.toUpperCase()
+function DNAtoRNA(dna) {
+    return dna.replaceAll('T','U');
 }
 
-console.log(makeUpperCase("hello") === "HELLO");
+console.log(DNAtoRNA("TTTT") === "UUUU");
