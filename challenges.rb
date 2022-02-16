@@ -1,16 +1,27 @@
-# // https://www.codewars.com/kata/555086d53eac039a2a000083/solutions/ruby
+# // // https://www.codewars.com/kata/5390bac347d09b7da40006f6/train/ruby
 
 =begin
-Timmy & Sarah think they are in love, but around where they live, they will only know once they pick a flower each. If one of the flowers has an 
-even number of petals and the other has an odd number of petals it means they are in love.
+Jaden Smith, the son of Will Smith, is the star of films such as The Karate Kid (2010) and After Earth (2013). Jaden is also known for some of his philosophy that he delivers via Twitter. When writing on Twitter, he is known for almost always capitalizing every word. For simplicity, you'll have to capitalize each word, check out how contractions are expected to be in the example below.
 
-Write a function that will take the number of petals of each flower and
- return true if they are in love and false if they aren't.
+Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
+
+Example:
+
+Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
+Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+
 =end
 
-def lovefunc( flower1, flower2 )
-  (flower1 + flower2).odd?
+class String
+  def toJadenCase
+    new_str = self.split(' ').each do |word|
+      word.capitalize!
+    end
+    new_str.join(' ')
+  end
 end
 
-lovefunc(1,4) #true
-lovefunc(5,5) #false
+str = "How can mirrors be real if our eyes aren't real";
+
+puts str.toJadenCase()
+
