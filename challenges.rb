@@ -1,4 +1,4 @@
-# // https://www.codewars.com/kata/554e4a2f232cdd87d9000038/train/ruby
+# // https://www.codewars.com/kata/555eded1ad94b00403000071/train/ruby
 
 def DNA_strand(dna)
   puts dna.tr('ATGC', 'TACG')  
