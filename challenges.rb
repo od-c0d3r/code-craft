@@ -1,3 +1,14 @@
-# https://www.codewars.com/kata/55a70521798b14d4750000a4/train/ruby
+# https://www.codewars.com/kata/515e271a311df0350d00000f/train/ruby
 
-def greet(name) "Hello, #{name} how are you doing today?"; end
+# Complete the square sum function so that it squares each number passed 
+# into it and then sums the results together.
+
+# For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9.
+
+def square_sum(numbers)
+    sum = 0
+    numbers.each do |num| sum += num*num; end
+    sum
+end
+
+square_sum [1,2,3,4]
