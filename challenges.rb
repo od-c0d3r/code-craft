@@ -12,3 +12,10 @@ def square_sum(numbers)
 end
 
 square_sum [1,2,3,4]
+
+
+# erpe, _Aleksey solution
+
+# def squareSum(numbers)
+#   numbers.map {|n| n*n}.reduce(:+)
+# end
