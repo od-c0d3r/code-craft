@@ -8,3 +8,7 @@
 const sumMix = (arr) => arr.reduce((sum, digit) => sum += Number(digit), 0);
 
 console.log(sumMix([9, 3, '7', '3']) === 22);
+
+// other solution
+
+// const sumMix=x=>x.reduce((a,b)=>+b+a,0)
