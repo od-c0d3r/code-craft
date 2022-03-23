@@ -31,3 +31,5 @@ function ipToInt32(ip){
 }
 
 console.log(ipToInt32("128.32.10.1") ===  2149583361);
+
+// helped me https://stackoverflow.com/questions/26127192/how-to-convert-decimal-to-binary-in-js
