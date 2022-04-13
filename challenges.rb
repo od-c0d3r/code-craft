@@ -14,6 +14,5 @@ def hoop_count n
   "Keep at it until you get it"
 end
 
-def hoop_count n
-	n < 10 ? "Keep at it until you get it" : "Great, now move on to tricks"
-end
+# other solution from the community
+# def hoop_count(n) n < 10 ? "Keep at it until you get it" : "Great, now move on to tricks"; end
