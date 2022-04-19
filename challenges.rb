@@ -1,31 +1,22 @@
-# https://www.codewars.com/kata/514a024011ea4fb54200004b/train/ruby
+# https://www.codewars.com/kata/517abf86da9663f1d2000003/train/ruby
 
-# Write a function that when given a URL as a string, parses out just the domain name and returns it as a string. For example:
+# Complete the method/function so that it converts dash/underscore delimited words 
+# into camel casing. The first word within the output should be capitalized only 
+# if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
+# Examples
 
-# * url = "http://github.com/carbonfive/raygun" -> domain name = "github"
-# * url = "http://www.zombie-bites.com"         -> domain name = "zombie-bites"
-# * url = "https://www.cnet.com"                -> domain name = cnet"
+# "the-stealth-warrior" gets converted to "theStealthWarrior"
+# "The_Stealth_Warrior" gets converted to "TheStealthWarrior"
 
-def domain_name(url)
-    p url
-      if url.include?("//") || url.include?("www") then
-          p split1 = url.split("//")
-          if split1[0].include? 'www' then return split1[0].split('.')[1]; end
-          if split1[1].include? 'www' then return split1[1].split('.')[1]; end
-          return split1[1].split('.')[0]
-      end
-      url.split(".")[0]
-  end
-
-p domain_name("http://google.com")# "google")
-p domain_name("http://google.co.jp")#, "google")
-p domain_name("www.xakep.ru")#, "xakep")
-p domain_name("https://youtube.com")##, "youtube")
-p domain_name("http://www.codewars.com/kata/")##, "codewars")
-p domain_name("https://wzvno.biz")##, "wzvno")
-
-# com sol
-
-# def domain_name(url)
-#   URI.parse(url).host.split('.').last(2)[0]
+# def to_camel_case(str)
+#   str.split(/[\-||\_]/).each_with_index.map { |word, index| index == 0 ? word : word.capitalize }.join('')
 # end
+
+
+# other solu
+
+def to_camel_case(str)
+  str.gsub(/[_-](.)/) {"#{$1.upcase}"}
+end
+
+p to_camel_case("the_stealth_warrior") # , "ABC"
