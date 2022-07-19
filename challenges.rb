@@ -13,3 +13,9 @@ end
 # find_short("bitcoin take over the world maybe who knows perhaps") > 3
 
 puts find_short("Do We have aaaaaa Hashtag") #1
+
+
+=begin
+better solution 
+s.split.map(&:size).min   
+=end
