@@ -1,38 +1,17 @@
-# https://www.codewars.com/kata/57eb8fcdf670e99d9b000272/train/ruby
+# https://www.codewars.com/kata/5899dc03bc95b1bf1b0000ad/train/ruby
 
-# Given a string of words, you need to find the highest scoring word.
+# Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
 
-# Each letter of a word scores points according to its position in the alphabet: a = 1, b = 2, c = 3 etc.
+# invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
+# invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
+# invert([]) == []
 
-# You need to return the highest scoring word as a string.
+# You can assume that all values are integers. Do not mutate the input array/list.
 
-# If two words score the same, return the word that appears earliest in the original string.
+def invert(list) ist.map {|num| num *-1}; end
 
-# All letters will be lowercase and all inputs will be valid.
-
-def high(x)
-  alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-  biggest_word_weight = 0;
-  biggest_word_index = 0;
-  current_word_weight = 0;
-  new_x = x.split(' ')
-
-  new_x.each_with_index do |word, index|
-
-    word.split('') do |char|
-      current_word_weight += alphabet.index(char)
-    end
-
-    if current_word_weight > biggest_word_weight
-      biggest_word_weight = current_word_weight;
-      biggest_word_index = index;
-    end
-
-    p "#{word} #{current_word_weight}"
-    current_word_weight = 0
-  end
-
-  new_x[biggest_word_index]
-end
-
-p high('man i need a taxi up to ubud') # taxi
+p invert([1,2,3,4,5])   #,[-1,-2,-3,-4,-5])
+p invert([1,-2,3,-4,5]) # ,[-1,2,-3,4,-5])
+p invert([0])           #,[0])
+p invert([-1,0,1])      #,[1,0,-1])
+p invert([])            #,[])
