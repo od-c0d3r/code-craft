@@ -1,17 +1,27 @@
-# https://www.codewars.com/kata/5899dc03bc95b1bf1b0000ad/train/ruby
+# https://www.codewars.com/kata/563cf89eb4747c5fb100001b/train/ruby
 
-# Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
+# The museum of incredible dull things
 
-# invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
-# invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
-# invert([]) == []
+# The museum of incredible dull things wants to get rid of some exhibitions.
+#  Miriam, the interior architect, comes up with a plan to remove the most
+#  boring exhibitions. She gives them a rating, and then removes the one with the lowest rating.
 
-# You can assume that all values are integers. Do not mutate the input array/list.
+# However, just as she finished rating all exhibitions, she's off to an
+# important fair, so she asks you to write a program that tells her the
+# ratings of the items after one removed the lowest one. Fair enough.
+# Task
 
-def invert(list) ist.map {|num| num *-1}; end
+# Given an array of integers, remove the smallest value. Do not mutate
+# the original array/list. If there are multiple elements with the same value,
+# remove the one with a lower index. If you get an empty array/list, return an empty array/list.
 
-p invert([1,2,3,4,5])   #,[-1,-2,-3,-4,-5])
-p invert([1,-2,3,-4,5]) # ,[-1,2,-3,4,-5])
-p invert([0])           #,[0])
-p invert([-1,0,1])      #,[1,0,-1])
-p invert([])            #,[])
+# Don't change the order of the elements that are left.
+# Examples
+
+# * Input: [1,2,3,4,5], output= [2,3,4,5]
+# * Input: [5,3,2,1,4], output = [5,3,2,4]
+# * Input: [2,2,1,2,1], output = [2,2,2,1]
+
+def remove_smallest(numbers) numbers.reject.with_index { |_,i| i == numbers.index(numbers.min)}; end
+
+p remove_smallest([1, 2, 3, 4, 5]) # [2, 3, 4, 5]
