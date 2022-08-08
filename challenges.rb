@@ -1,27 +1,44 @@
-# https://www.codewars.com/kata/563cf89eb4747c5fb100001b/train/ruby
+# Mr. Scrooge has a sum of money 'P' that he wants to invest.
+# Before he does, he wants to know how many years 'Y' this sum 'P'
+# has to be kept in the bank in order for it to amount to a desired sum of money 'D'.
 
-# The museum of incredible dull things
+# The sum is kept for 'Y' years in the bank where interest 'I'
+# is paid yearly. After paying taxes 'T' for the year the new sum is re-invested.
 
-# The museum of incredible dull things wants to get rid of some exhibitions.
-#  Miriam, the interior architect, comes up with a plan to remove the most
-#  boring exhibitions. She gives them a rating, and then removes the one with the lowest rating.
+# Note to Tax: not the invested principal is taxed, but only the year's accrued interest
 
-# However, just as she finished rating all exhibitions, she's off to an
-# important fair, so she asks you to write a program that tells her the
-# ratings of the items after one removed the lowest one. Fair enough.
-# Task
+# Example:
 
-# Given an array of integers, remove the smallest value. Do not mutate
-# the original array/list. If there are multiple elements with the same value,
-# remove the one with a lower index. If you get an empty array/list, return an empty array/list.
+#   Let P be the Principal = 1000.00
+#   Let I be the Interest Rate = 0.05
+#   Let T be the Tax Rate = 0.18
+#   Let D be the Desired Sum = 1100.00
 
-# Don't change the order of the elements that are left.
-# Examples
 
-# * Input: [1,2,3,4,5], output= [2,3,4,5]
-# * Input: [5,3,2,1,4], output = [5,3,2,4]
-# * Input: [2,2,1,2,1], output = [2,2,2,1]
+# After 1st Year -->
+#   P = 1041.00
+# After 2nd Year -->
+#   P = 1083.86
+# After 3rd Year -->
+#   P = 1128.30
 
-def remove_smallest(numbers) numbers.reject.with_index { |_,i| i == numbers.index(numbers.min)}; end
+# Thus Mr. Scrooge has to wait for 3 years for the initial principal
+# to amount to the desired sum.
 
-p remove_smallest([1, 2, 3, 4, 5]) # [2, 3, 4, 5]
+# Your task is to complete the method provided and return the number
+# of years 'Y' as a whole in order for Mr. Scrooge to get the desired sum.
+
+# Assumption: Assume that Desired Principal 'D' is always greater than
+# the initial principal. However it is best to take into consideration that
+# if Desired Principal 'D' is equal to Principal 'P' this should return 0 Years.
+
+def calculate_years(principal, interest, tax, desired)
+  years = 0
+  return years if desired == principal
+
+  until principal >= desired
+    years += 1
+    principal += ((principal*interest) - ((principal*interest)*tax))
+  end
+  return years
+end
