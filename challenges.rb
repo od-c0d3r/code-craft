@@ -1,51 +1,47 @@
-# https://www.codewars.com/kata/51b66044bce5799a7f000003/train/ruby
+# https://www.codewars.com/kata/53af2b8861023f1d88000832/train/ruby
 
-# to be continue
 
-# # TODO: create a RomanNumerals helper class
+# Create a function which answers the question "Are you playing banjo?".
+# If your name starts with the letter "R" or lower case "r", you are playing banjo!
 
-class RomanNumerals
-  ROMAN_SYSTEM = {
-      "I": 1,
-      "V": 5,
-      "X": 10,
-      "L": 50,
-      "C": 100,
-      "D": 500,
-      "M": 1000
-  }
+# The function takes a name as its only argument, and returns one of the following strings:
 
-  def self.to_roman(num)
-    # convert argument to integer
-    number = num.to_s
-    puts "#{number}, #{number.class}"
+# name + " plays banjo"
+# name + " does not play banjo"
+# Names given are always valid strings.
 
-    # create a hash containg the system keys values.
-#     ROMAN_SYSTEM.each { |roman, value| puts value}
 
-    number.each_char.with_index do |char, index|
-      puts "#{char} * 10^#{number.length - index - 1}"
-    end
-    # loop over every key system, for each loop:
-    #   devide by the system key value.
-    #     if >= 1 where it is x then put the value in the result
-    #     if < 1 than move to the next/down loop/level/sysyem key.
-    #  create a funtion to change any letter from 4 time to 3 times + 1 time special characters
-    # return the result
-  end
+# describe "Basic Tests" do
+#   it "should pass basic tests" do
+#     Test.assert_equals(are_you_playing_banjo("Martin"), "Martin does not play banjo");
+#     Test.assert_equals(are_you_playing_banjo("Rikke"), "Rikke plays banjo");
+#     Test.assert_equals(are_you_playing_banjo("bravo"), "bravo does not play banjo")
+#     Test.assert_equals(are_you_playing_banjo("rolf"), "rolf plays banjo")
+#   end
+# end
 
-  def self.from_roman(str)
-  end
+# def are_you_playing_banjo(name)
+#   # Implement me!
+#   #
+#   #   - if name first char == R or r
+#   #     - return name + " plays banjo"
+#   #   - else
+#   #     - return name + " does not play banjo"
+#   #
+#   #
+#   if name.chr == 'R' || name.chr == 'r'
+#     return name + ' plays banjo'
+#   else
+#     return name + ' does not play banjo'
+#   end
+# end
+#
+# 2nd Version
+#
+def are_you_playing_banjo(name)
+  return "#{name} plays banjo" if name.chr == 'R' || name.chr == 'r'
+
+  "#{name} does not play banjo"
 end
 
-
-# 743 / 500 = CCC
-
-# more than 1
-# or
-# 1
-# or
-# less than 1
-
-# DCCXXXXIII
-
+p are_you_playing_banjo('Martin') == 'Martin does not play banjo'
