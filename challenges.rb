@@ -1,47 +1,38 @@
-# https://www.codewars.com/kata/53af2b8861023f1d88000832/train/ruby
+# https://www.codewars.com/kata/54edbc7200b811e956000556/train/ruby
 
+# Consider an array/list of sheep where some sheep may be missing from their place. We need a function that counts
+# the number of sheep present in the array (true means present).
 
-# Create a function which answers the question "Are you playing banjo?".
-# If your name starts with the letter "R" or lower case "r", you are playing banjo!
+# For example,
 
-# The function takes a name as its only argument, and returns one of the following strings:
+# [true,  true,  true,  false,
+#   true,  true,  true,  true ,
+#   true,  false, true,  false,
+#   true,  false, false, true ,
+#   true,  true,  true,  true ,
+#   false, false, true,  true]
+# The correct answer would be 17.
 
-# name + " plays banjo"
-# name + " does not play banjo"
-# Names given are always valid strings.
+# Hint: Don't forget to check for bad values like null/undefined
 
+def count_sheep(array)
+  # May the force be with you
+  #
+  # define a counter
+  # loop over the array
+  #   - if value == true then increse counter by 1
+  #   - else you should do nothing
 
-# describe "Basic Tests" do
-#   it "should pass basic tests" do
-#     Test.assert_equals(are_you_playing_banjo("Martin"), "Martin does not play banjo");
-#     Test.assert_equals(are_you_playing_banjo("Rikke"), "Rikke plays banjo");
-#     Test.assert_equals(are_you_playing_banjo("bravo"), "bravo does not play banjo")
-#     Test.assert_equals(are_you_playing_banjo("rolf"), "rolf plays banjo")
-#   end
-# end
+  # Version 1
+  # sheep_counter = 0
+  # array.each { |element| sheep_counter += 1 if element == true }
 
-# def are_you_playing_banjo(name)
-#   # Implement me!
-#   #
-#   #   - if name first char == R or r
-#   #     - return name + " plays banjo"
-#   #   - else
-#   #     - return name + " does not play banjo"
-#   #
-#   #
-#   if name.chr == 'R' || name.chr == 'r'
-#     return name + ' plays banjo'
-#   else
-#     return name + ' does not play banjo'
-#   end
-# end
-#
-# 2nd Version
-#
-def are_you_playing_banjo(name)
-  return "#{name} plays banjo" if name.chr == 'R' || name.chr == 'r'
-
-  "#{name} does not play banjo"
+  array.count(true)
 end
 
-p are_you_playing_banjo('Martin') == 'Martin does not play banjo'
+p count_sheep([true,  true,  true,  false,
+   true,  true,  true,  true ,
+   true,  false, true,  false,
+   true,  false, false, true ,
+   true,  true,  true,  true ,
+   false, false, true,  true])
