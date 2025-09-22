@@ -1,51 +1,35 @@
-# https://www.codewars.com/kata/55c45be3b2079eccff00010f/train/ruby
-#
-# Your task is to sort a given string. Each word in the string will contain a single number. This number is the position the word should have in the result.
+# # https://www.codewars.com/kata/51edd51599a189fe7f000015/train/ruby
+# Complete the function that
 
-# Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
-
-# If the input string is empty, return an empty string. The words in the input String will only contain valid consecutive numbers.
-
+# accepts two integer arrays of equal length
+# compares the value each member in one array to the corresponding member in the other
+# squares the absolute value difference between those two values
+# and returns the average of those squared absolute value difference between each member pair.
 # Examples
 
-# "is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
-# "4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
-# ""  -->  ""
-#
-# Solution =>
-#
-# Inputs:
-#   1. String with injected numbers (1-9) within its words.
-#
-# O/P :
-#   1. Sorted String bassed on the numbers
-#   2. Empty string if i/p string is empty
-#
-# Process :
-#   1. Return empty string if i/p string is empty
-#   2. Create a new array
-#   3. Loop over each word
-#   4. Extract the number from the word
-#   5. Allocate the word in the new array bassed on the (number - 1)
-#   6. Return the new array
+# [1, 2, 3], [4, 5, 6]              -->   9   because (9 + 9 + 9) / 3
+# [10, 20, 10, 2], [10, 25, 5, -2]  -->  16.5 because (0 + 25 + 25 + 16) / 4
+# [-1, 0], [0, -1]                  -->   1   because (1 + 1) / 2
 
-def order(words)
-  # return '' if words.empty?
-
-  # result = []
-
-  # words.split.each do |word|
-  #   num = word.match /[0-9]/
-  #   indexed_num = num.to_s.to_i - 1
-
-  #   result[indexed_num] = word
-  # end
-
-  # result.join ' '
-
-  # 2nd version
+def solution(arr1, arr2)
+  # Allocate a new arary based on one of the arraies length
+  # Make a loop from Zero to array length
+  #   Access each value using the index in both arrays
+  #   Make the math of (x - y)^2
+  #   Store the value in the new array using the index
+  # Make a loop on the result array to get the avg.
   #
-  words.split.sort_by { |word| word[/\d/] }.join ' '
+  #
+  #
+  # result = Array.new(arr1.length) { |index| index }
+
+  # result.reduce(0) { |memo, index|
+  #   p memo
+  #   p index
+  #   memo + ((arr1[index] - arr2[index])**2)
+  # }
 end
 
-p order ''
+solution([1, 2, 3], [4, 5, 6]) # 9
+# p solution([10, 20, 10, 2], [10, 25, 5, -2]) # 16.5
+# p solution([-1, 0], [0, -1]) # 9
