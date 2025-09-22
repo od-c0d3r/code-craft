@@ -1,38 +1,51 @@
-# https://www.codewars.com/kata/54edbc7200b811e956000556/train/ruby
+# https://www.codewars.com/kata/55c45be3b2079eccff00010f/train/ruby
+#
+# Your task is to sort a given string. Each word in the string will contain a single number. This number is the position the word should have in the result.
 
-# Consider an array/list of sheep where some sheep may be missing from their place. We need a function that counts
-# the number of sheep present in the array (true means present).
+# Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
 
-# For example,
+# If the input string is empty, return an empty string. The words in the input String will only contain valid consecutive numbers.
 
-# [true,  true,  true,  false,
-#   true,  true,  true,  true ,
-#   true,  false, true,  false,
-#   true,  false, false, true ,
-#   true,  true,  true,  true ,
-#   false, false, true,  true]
-# The correct answer would be 17.
+# Examples
 
-# Hint: Don't forget to check for bad values like null/undefined
+# "is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
+# "4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
+# ""  -->  ""
+#
+# Solution =>
+#
+# Inputs:
+#   1. String with injected numbers (1-9) within its words.
+#
+# O/P :
+#   1. Sorted String bassed on the numbers
+#   2. Empty string if i/p string is empty
+#
+# Process :
+#   1. Return empty string if i/p string is empty
+#   2. Create a new array
+#   3. Loop over each word
+#   4. Extract the number from the word
+#   5. Allocate the word in the new array bassed on the (number - 1)
+#   6. Return the new array
 
-def count_sheep(array)
-  # May the force be with you
+def order(words)
+  # return '' if words.empty?
+
+  # result = []
+
+  # words.split.each do |word|
+  #   num = word.match /[0-9]/
+  #   indexed_num = num.to_s.to_i - 1
+
+  #   result[indexed_num] = word
+  # end
+
+  # result.join ' '
+
+  # 2nd version
   #
-  # define a counter
-  # loop over the array
-  #   - if value == true then increse counter by 1
-  #   - else you should do nothing
-
-  # Version 1
-  # sheep_counter = 0
-  # array.each { |element| sheep_counter += 1 if element == true }
-
-  array.count(true)
+  words.split.sort_by { |word| word[/\d/] }.join ' '
 end
 
-p count_sheep([true,  true,  true,  false,
-   true,  true,  true,  true ,
-   true,  false, true,  false,
-   true,  false, false, true ,
-   true,  true,  true,  true ,
-   false, false, true,  true])
+p order ''
